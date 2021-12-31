@@ -150,9 +150,11 @@ def video_detect_and_predict(frame, faceNet, maskNet):
 st.set_page_config(page_title="Face Mask Detection System", page_icon="https://lensec.com/wp-content/uploads/2021/03/Mask-Detection-Icon.png")
 st.title('Face Mask Detection System')
 
-prototxtPath = r"C:\Users\tapen\ipnyb notebooks\face_detection_project\face_detection_dnn\deploy.prototxt.txt"
-weightsPath = r"C:\Users\tapen\ipnyb notebooks\face_detection_project\face_detection_dnn\res10_300x300_ssd_iter_140000.caffemodel"
-maskNet = load_model(r"C:\Users\tapen\ipnyb notebooks\face_detection_project\face_mask_detector.model")
+cwd = os.path.dirname(__file__)
+cwd = os.path.abspath(os.path.join(cwd, os.pardir))
+prototxtPath = os.path.join(cwd,"face_detection_dnn\\deploy.prototxt.txt")
+weightsPath = os.path.join(cwd,"face_detection_dnn\\res10_300x300_ssd_iter_140000.caffemodel")
+maskNet = load_model(os.path.join(cwd, 'face_mask_detector.model'))
 
 
 rad = st.sidebar.radio("Navigation", ["Home", "About Model"])
@@ -176,13 +178,14 @@ if rad == "Home":
             run = st.checkbox('Start WebCam')
             FRAME_WINDOW = st.image([])
 
-            if run:
-                cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-                while True:
-                    ret, frame = cam.read()
-                    frame = video_detect_and_predict(frame, faceNet, maskNet)
-                    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                    FRAME_WINDOW.image(frame)
+            cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+            while run:
+                ret, frame = cam.read()
+                frame = video_detect_and_predict(frame, faceNet, maskNet)
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                FRAME_WINDOW.image(frame)
+            else: cam.release()
+
         elif camera_choice=="Upload Video":
             uploaded_file = st.file_uploader("Choose a video...", type=["mp4"])
             temporary_location = False
