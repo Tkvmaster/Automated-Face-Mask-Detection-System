@@ -151,7 +151,6 @@ st.set_page_config(page_title="Face Mask Detection System", page_icon="https://l
 st.title('Face Mask Detection System')
 
 cwd = os.path.dirname(__file__)
-cwd = os.path.abspath(os.path.join(cwd, os.pardir))
 prototxtPath = os.path.join(cwd,"face_detection_dnn\\deploy.prototxt.txt")
 weightsPath = os.path.join(cwd,"face_detection_dnn\\res10_300x300_ssd_iter_140000.caffemodel")
 maskNet = load_model(os.path.join(cwd, 'face_mask_detector.model'))
