@@ -1,5 +1,5 @@
 mtcnn==0.1.1
 numpy==1.20.1
-opencv_python==4.5.4.58
+opencv_python<4.5.4.58
 streamlit==1.2.0
 tensorflow-cpu==2.5
