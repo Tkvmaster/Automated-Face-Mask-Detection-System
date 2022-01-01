@@ -54,6 +54,11 @@ The Streamlit app provides the ability to upload an image and run a face mask de
     <img src="images/streamlit_app_screenshot.png" alt>
     <em>Streamlit App Screenshot</em>
 </p>
+<br>
+
+
+Image Source : https://www.kaggle.com/andrewmvd/face-mask-detection
+
 
 ## Licensing
 The code in this project is licensed under [MIT License](LICENSE).
