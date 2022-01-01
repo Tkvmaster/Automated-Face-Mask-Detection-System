@@ -35,7 +35,7 @@ I have used two methods for detecting faces, MTCNN for detection faces in images
 The Streamlit app provides the ability to upload an image and run a face mask detection using the MTCNN model as the detector. This will be a great way to test the generalizability of the model. My hope is to include a webcam version of this model as well but this is under construction at the moment.
 
 ## Results
-<table>
+<table class="bottom">
     <caption>Original and Pridicted Images</caption>
     <tr>
         <th>Input</th>
@@ -46,7 +46,7 @@ The Streamlit app provides the ability to upload an image and run a face mask de
         <td><img src="images/prediction_maksssksksss5.png"/></td>
     </tr>
 </table>
-
+<br>
 
 <p align="center">
     <img src="images/streamlit_app_screenshot.png" alt>
