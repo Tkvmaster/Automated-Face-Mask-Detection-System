@@ -11,8 +11,8 @@ import os
 
 @st.cache(allow_output_mutation=True)
 def load_net():
-    modelFile = "res10_300x300_ssd_iter_140000_fp16.caffemodel"
-    configFile = "deploy.prototxt.txt"
+    modelFile = "./face_detection_dnn/res10_300x300_ssd_iter_140000.caffemodel"
+    configFile = "./face_detection_dnn/deploy.prototxt.txt"
     net = cv2.dnn.readNetFromCaffe(configFile, modelFile)
     return net
 
