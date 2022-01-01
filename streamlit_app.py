@@ -9,6 +9,12 @@ from mtcnn import MTCNN
 import io
 import os
 
+@st.cache(allow_output_mutation=True)
+def load_net():
+    modelFile = "res10_300x300_ssd_iter_140000_fp16.caffemodel"
+    configFile = "deploy.prototxt.txt"
+    net = cv2.dnn.readNetFromCaffe(configFile, modelFile)
+    return net
 
 # Function for prediction in images
 def image_detect_and_predict(frame, masknet):
@@ -151,9 +157,8 @@ st.set_page_config(page_title="Face Mask Detection System", page_icon="https://l
 st.title('Face Mask Detection System')
 
 cwd = os.path.dirname(__file__)
-prototxtPath = os.path.join(cwd,"face_detection_dnn\\deploy.prototxt.txt")
-weightsPath = os.path.join(cwd,"face_detection_dnn\\res10_300x300_ssd_iter_140000.caffemodel")
-faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
+# prototxtPath = os.path.join(cwd,"face_detection_dnn\\deploy.prototxt.txt")
+# weightsPath = os.path.join(cwd,"face_detection_dnn\\res10_300x300_ssd_iter_140000.caffemodel")
 maskNet = load_model(os.path.join(cwd, 'face_mask_detector.model'))
 
 
@@ -172,7 +177,7 @@ if rad == "Home":
             image_predict(frame, maskNet)
 
     if detection_choice == "Detect Mask in Video":
-        faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
+        faceNet = load_net()
         camera_choice = st.selectbox("Video Options",["Upload Video","Open WebCam"],index = 1)
         if camera_choice == "Open WebCam":
             run = st.checkbox('Start WebCam')
