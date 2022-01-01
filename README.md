@@ -41,8 +41,8 @@ The Streamlit app provides the ability to upload an image and run a face mask de
 <th>Output</th>
 </tr>
 <tr>
-<td><img src="images/test.jpg"/></td>
-<td><img src="images/test-result.png"/></td>
+<td><img src="images/maksssksksss5.png"/></td>
+<td><img src="images/prediction_maksssksksss5.png"/></td>
 </tr>
 </table>
 
