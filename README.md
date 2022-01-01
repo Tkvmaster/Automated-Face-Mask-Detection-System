@@ -44,7 +44,13 @@ The Streamlit app provides the ability to upload an image and run a face mask de
 <td><img src="images/maksssksksss5.png"/></td>
 <td><img src="images/prediction_maksssksksss5.png"/></td>
 </tr>
+<caption>Original and Pridicted Images</caption>
 </table>
+
+<p>
+    <img src="images/streamlit_app_screenshot.png" alt>
+    <em>Streamlit App Screenshot</em>
+</p>
 
 ## Licensing
 The code in this project is licensed under [MIT License](LICENSE).
