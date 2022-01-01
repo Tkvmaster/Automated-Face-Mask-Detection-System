@@ -1,4 +1,4 @@
-python-3.7.10
+python-3.7.12
 tensorflow-cpu==2.5
 mtcnn==0.1.1
 numpy<1.20.1
