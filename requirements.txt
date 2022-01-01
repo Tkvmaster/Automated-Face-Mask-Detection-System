@@ -1,4 +1,4 @@
-tensorflow-cpu==2.5
+tensorflow-cpu==1.15
 mtcnn==0.1.1
 numpy<1.20.1
 opencv_python==4.1.0.25
