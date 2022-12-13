@@ -225,5 +225,3 @@ if rad == "Home":
 
 
                 cv2.destroyAllWindows()
-
-        
